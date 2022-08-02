@@ -2,20 +2,6 @@
   <div class="nav-wrapper">
     <div class="content">
       <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
-      <p>Morney.vue</p>
     </div>
     <Nav/>
   </div>
