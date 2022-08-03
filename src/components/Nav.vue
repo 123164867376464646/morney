@@ -43,7 +43,7 @@ nav {
   }
 
   > .item.selected {
-    color: red;
+    color: lightseagreen;
   }
 }
 </style>
