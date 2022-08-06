@@ -1,15 +1,37 @@
 <template>
   <div>
     <ul class="types">
-      <li class="selected">支出</li>
-      <li>收入</li>
+      <li :class="type === '-' && 'selected'"
+      @click="selectType('-')">支出</li>
+      <li :class="type === '+' && 'selected'"
+      @click="selectType('+')">收入</li>
     </ul>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  name: 'Types'
+  name: 'Types',
+  props: ['xxx'],
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  data() {
+    return {
+      type: '-' //'-'表示支出，'+'表示收入
+    }
+  },
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  mounted() {
+    console.log(this.xxx)
+  },
+  methods: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    selectType(type) { //type只能是 '-' 和 '+' 中的一个
+      if(type !== '-' && type!== '+'){
+        throw new Error('type is unknown')
+      }
+      this.type = type
+    }
+  }
 };
 </script>
 
