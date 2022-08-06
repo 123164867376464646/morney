@@ -1,2 +1,22 @@
 $font-hei: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-$color-highlight: yellow;
+$color-highlight: #fac63c;
+
+//placeholder
+%clearFix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+$color-interShadow: rgba(255, 255, 0, 0.8);
+$color-outerShadow: rgba(0, 0, 0, 0.25);
+%innerShadow {
+  box-shadow: inset 0 -3px 3px -3px $color-interShadow,
+  inset 0 3px 3px -3px $color-interShadow;
+}
+
+%outerShadow {
+  box-shadow: 0 0 3px $color-outerShadow;
+}
