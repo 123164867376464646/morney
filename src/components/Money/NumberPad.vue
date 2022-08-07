@@ -33,7 +33,7 @@ export default class NumberPad extends Vue {
     const button = (event.target as HTMLButtonElement);
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const input = button.textContent!;
-    if(this.output.length >16){return;}
+    if (this.output.length > 16) {return;}
     if (this.output === '0') {
       if ('0123456789'.indexOf(input) >= 0) {
         this.output = input;
@@ -45,22 +45,24 @@ export default class NumberPad extends Vue {
     if (this.output.indexOf('.') >= 0 && input === '.') {return;}
     this.output += input;
   }
+
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  remove(){
-    const x = this.output.substring(0, this.output.length-1)
-    if(this.output.length === 1){
-      this.output = '0'
-    }else{
-      this.output = x
+  remove() {
+    const x = this.output.substring(0, this.output.length - 1);
+    if (this.output.length === 1) {
+      this.output = '0';
+    } else {
+      this.output = x;
     }
   }
+
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  clear(){
-    this.output = '0'
+  clear() {
+    this.output = '0';
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/explicit-module-boundary-types
-  ok(){}
+  ok() {}
 }
 </script>
 
