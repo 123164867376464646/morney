@@ -62,7 +62,10 @@ export default class NumberPad extends Vue {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/explicit-module-boundary-types
-  ok() {}
+  ok() {
+    this.$emit('update:value', this.output);
+    this.$emit('submit', this.output)
+  }
 }
 </script>
 
