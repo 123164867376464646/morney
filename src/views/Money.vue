@@ -1,6 +1,5 @@
 <template>
   <Layout class-prefix="layout">
-    {{ record }}
     <NumberPad @update:value="onUpdateAmount" @submit="saveRecord"/>
     <Types :value.sync="record.type"/>
     <div class="notes">
@@ -21,7 +20,6 @@ import recordListModel from '@/models/recordListModel';
 import tagListModel from '@/models/tagListModel';
 
 const recordList = recordListModel.fetch();
-
 const tagList = tagListModel.fetch();
 
 @Component({
@@ -50,14 +48,12 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    const deepClone: RecordItem = recordListModel.clone(this.record);
-    deepClone.createAt = new Date();
-    this.recordList.push(deepClone);
+    recordListModel.create(this.record)
   }
 
   @Watch('recordList')
   onRecordListChange() {
-    recordListModel.save(this.recordList);
+    recordListModel.save();
   }
 };
 </script>
