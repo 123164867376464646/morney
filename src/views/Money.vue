@@ -22,7 +22,7 @@ import Tabs from '@/views/Tabs.vue'
 import recordTypeList from '@/constents/recordTypeList'
 
 @Component({
-  components: {Tabs, Tags, FormItem,NumberPad},
+  components: {Tabs, Tags, FormItem, NumberPad},
 })
 export default class Money extends Vue {
   record: RecordItem = {
@@ -50,7 +50,7 @@ export default class Money extends Vue {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .layout-content {
   display: flex;
   flex-direction: column-reverse;
