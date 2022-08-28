@@ -8,7 +8,7 @@
                 placeholder="在这里输入备注"
                 @update:value="onUpdateNotes"/>
     </div>
-    <Tags :value.sync="record.tags"/>
+    <Tags/>
   </Layout>
 </template>
 
@@ -51,7 +51,7 @@ export default class Money extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.layout-content {
+::v-deep .layout-content {
   display: flex;
   flex-direction: column-reverse;
 }
