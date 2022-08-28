@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <ol>
+    <ol v-if="groupedList.length>0">
       <li v-for="(group,index) in groupedList" :key="index">
         <h3 class="title">{{ beautify(group.title) }} <span>￥{{ group.total }}</span></h3>
         <ol>
@@ -15,32 +15,13 @@
         </ol>
       </li>
     </ol>
+    <div v-else class="noResult">
+      <span>目前没有相关记录</span>
+    </div>
   </Layout>
 </template>
 
 <style scoped lang="scss">
-%item {
-  padding: 8px 16px;
-  line-height: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-}
-
-.title {
-  @extend %item
-}
-
-.record {
-  @extend %item;
-  background: white;
-}
-
-.notes {
-  margin-right: auto;
-  margin-left: 16px;
-  color: #999999;
-}
 
 </style>
 
@@ -57,7 +38,7 @@ import clone from '@/lib/clone'
 })
 export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? '无' : tags.join(',')
+    return tags.length === 0 ? '无' : tags.map(t=>t.name).join('，')
   }
 
   beautify(string: string) {
@@ -83,11 +64,11 @@ export default class Statistics extends Vue {
 
   get groupedList() {
     const {recordList} = this
-    if(recordList.length === 0) {return []}
 
     const newList = clone(recordList)
         .filter(r => r.type === this.type)
         .sort((a, b) => dayjs(b.createAt).valueOf() - dayjs(a.createAt).valueOf())
+    if(newList.length === 0) {return []}
     type Result = {
       title: string,
       total?: number,
@@ -124,6 +105,10 @@ export default class Statistics extends Vue {
 </script>
 
 <style scoped lang="scss">
+.noResult{
+  padding: 16px;
+  text-align: center;
+}
 ::v-deep {
   .type-tabs-item {
     background: #c4c4c4;
@@ -141,4 +126,27 @@ export default class Statistics extends Vue {
     height: 48px;
   }
 }
+%item {
+  padding: 8px 16px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.title {
+  @extend %item
+}
+
+.record {
+  @extend %item;
+  background: white;
+}
+
+.notes {
+  margin-right: auto;
+  margin-left: 16px;
+  color: #999999;
+}
+
 </style>
