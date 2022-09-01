@@ -28,7 +28,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
-import Tabs from '@/views/Tabs.vue'
+import Tabs from '@/components/Money/Tabs.vue'
 import recordTypeList from '@/constents/recordTypeList'
 import dayjs from 'dayjs'
 import clone from '@/lib/clone'
