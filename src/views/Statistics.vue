@@ -57,7 +57,6 @@ export default class Statistics extends Vue {
       return day.format('YYYY年M月D日')
     }
   }
-
   get recordList() {
     return (this.$store.state as RootState).recordList
   }
@@ -101,7 +100,7 @@ export default class Statistics extends Vue {
   type = '-';
   recordTypeList = recordTypeList
 
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -109,6 +108,8 @@ export default class Statistics extends Vue {
   padding: 16px;
   text-align: center;
 }
+
+
 ::v-deep {
   .type-tabs-item {
     background: #c4c4c4;
