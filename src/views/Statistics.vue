@@ -46,11 +46,11 @@ export default class Statistics extends Vue {
     const array = [];
     for(let i = 0; i <= 29; i++) {
       const dateString = day(today).subtract(i, 'day').format('YYYY-MM-DD')
-      const found = _.find(this.recordList, {
-        createAt: dateString
+      const found = _.find(this.groupedList, {
+        title: dateString
       });
       array.push({
-        key: dateString, value: found ? found.amount : 0
+        key: dateString, value: found ? found.total: 0
       });
       array.sort((a, b) => {
         if(a.key > b.key) {
@@ -67,7 +67,6 @@ export default class Statistics extends Vue {
 
   get chartOptions() {
     const keys = this.keyValueList.map(item => item.key);
-    console.log(keys);
     const values = this.keyValueList.map(item => item.value);
     return {
       tooltip: {
