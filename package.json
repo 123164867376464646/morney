@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "build:dev": "cross-env NODE_ENV=development yarn build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:gitee": "sh deploy-gitee.sh"
   },
   "dependencies": {
     "@types/echarts": "^4.9.16",
